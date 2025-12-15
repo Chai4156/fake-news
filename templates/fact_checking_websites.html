@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Fact Checking Websites - FakeNews Detect{% endblock %}
+
+{% block content %}
+<div class="fact-checking-container">
+    <h1>Popular Fact Checking Websites</h1>
+    <p>Here are some trusted fact-checking resources you can use to verify information:</p>
+    
+    <div class="websites-grid">
+        {% for website in websites %}
+        <div class="website-card">
+            <h3>{{ website.name }}</h3>
+            <p>{{ website.description }}</p>
+            <a href="{{ website.url }}" target="_blank" class="visit-button">Visit Website</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .fact-checking-container {
+        max-width: 1000px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        color: #333333;
+        text-align: center;
+    }
+
+    .fact-checking-container h1 {
+        margin-bottom: 15px;
+        font-size: 2.5em;
+    }
+
+    .fact-checking-container > p {
+        margin-bottom: 40px;
+        font-size: 1.1em;
+    }
+
+    .websites-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        text-align: left;
+    }
+
+    .website-card {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #dddddd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .website-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .website-card h3 {
+        color: #4CAF50;
+        margin-bottom: 10px;
+        font-size: 1.3em;
+    }
+
+    .website-card p {
+        color: #666666;
+        margin-bottom: 15px;
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+
+    .visit-button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        font-weight: bold;
+    }
+
+    .visit-button:hover {
+        background-color: #45a049;
+    }
+</style>
+{% endblock %}

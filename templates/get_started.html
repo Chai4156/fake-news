@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Get Started - FakeNews Detect{% endblock %}
+
+{% block content %}
+<div class="content-box">
+    <h1>Check News for Authenticity</h1>
+    <p>Submit a news headline or URL to analyze its authenticity using our advanced deep learning models.</p>
+    
+    <form id="newsForm">
+        <input 
+            type="text" 
+            id="newsInput" 
+            placeholder="Enter news headline or URL" 
+            required
+            autocomplete="off"
+        >
+        <button type="submit" id="submitBtn" class="submit-button">Analyze</button>
+    </form>
+    
+    <div id="result" class="result-box" style="display: none; margin-top: 20px;">
+        <h3 id="resultTitle"></h3>
+        <p id="resultMessage"></p>
+        <p id="resultConfidence"></p>
+    </div>
+    
+    <div id="loadingSpinner" class="spinner" style="display: none; margin-top: 20px;">
+        <div class="spin"></div>
+        <p>Analyzing...</p>
+    </div>
+</div>
+
+<style>
+    #newsForm {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #newsInput {
+        width: 100%;
+        max-width: 400px;
+        padding: 12px 15px;
+        font-size: 16px;
+        border: 2px solid #cccccc;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #333333;
+        margin-bottom: 15px;
+    }
+
+    #newsInput::placeholder {
+        color: #999999;
+    }
+
+    #newsInput:focus {
+        outline: none;
+        border-color: #4CAF50;
+        background: #ffffff;
+    }
+
+    .submit-button {
+        width: 150px;
+        padding: 12px 30px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+
+    .result-box {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #dddddd;
+    }
+
+    .spinner {
+        text-align: center;
+    }
+
+    .spin {
+        border: 4px solid #cccccc;
+        border-top: 4px solid #4CAF50;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<script>
+    document.getElementById('newsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const newsInput = document.getElementById('newsInput').value.trim();
+        const result = document.getElementById('result');
+        const spinner = document.getElementById('loadingSpinner');
+        
+        if (!newsInput) {
+            alert('Please enter a news headline or URL');
+            return;
+        }
+        
+        result.style.display = 'none';
+        spinner.style.display = 'block';
+        
+        // Send to backend
+        fetch('{{ url_for("submit_news") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ news: newsInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+            spinner.style.display = 'none';
+            
+            // Display result
+            document.getElementById('resultTitle').textContent = 'Analysis Complete';
+            document.getElementById('resultMessage').textContent = data.message;
+            document.getElementById('resultConfidence').textContent = 'News: ' + data.news;
+            result.style.display = 'block';
+        })
+        .catch(error => {
+            spinner.style.display = 'none';
+            alert('Error analyzing news: ' + error);
+        });
+    });
+</script>
+{% endblock %}
