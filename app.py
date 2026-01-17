@@ -38,19 +38,22 @@ def fact_checking_websites():
 def about():
     return render_template('about_us.html')
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
 @app.route('/submit-news', methods=['POST'])
 def submit_news():
     data = request.get_json()
     news = data.get('news')
-    
-    # TODO: Add your ML model prediction logic here
-    # For now, returning a placeholder response
-    
     return jsonify({
         'status': 'success',
         'message': 'News submitted for analysis',
         'news': news
     })
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 if __name__ == '__main__':
     app.run(debug=True)

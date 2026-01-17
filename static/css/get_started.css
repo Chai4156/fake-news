@@ -1,0 +1,70 @@
+#newsForm {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #newsInput {
+        width: 100%;
+        max-width: 400px;
+        padding: 12px 15px;
+        font-size: 16px;
+        border: 2px solid #cccccc;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #333333;
+        margin-bottom: 15px;
+    }
+
+    #newsInput::placeholder {
+        color: #999999;
+    }
+
+    #newsInput:focus {
+        outline: none;
+        border-color: #4CAF50;
+        background: #ffffff;
+    }
+
+    .submit-button {
+        width: 150px;
+        padding: 12px 30px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+
+    .result-box {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #dddddd;
+    }
+
+    .spinner {
+        text-align: center;
+    }
+
+    .spin {
+        border: 4px solid #cccccc;
+        border-top: 4px solid #4CAF50;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }

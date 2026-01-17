@@ -3,6 +3,7 @@
 {% block title %}About Us - FakeNews Detect{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/about_us.css')}}">
 <div class="about-container">
     <div class="about-box">
         <h1>Fakey</h1>
@@ -32,10 +33,10 @@
                 Our system utilizes:
             </p>
             <ul class="features-list">
-                <li><strong>Deep Learning Models:</strong> Roberta and SBERT have trained for highest accuracy and nuances</li>
+                <li><strong>Deep Learning Models:</strong> Mixture of hybird models from companies like openai,mistral and </li>
                 <li><strong>Real-Time Data:</strong> Acessing websites in real time for for up-to-date info</li>
-                <li><strong>Tri-Modal Dependency:</strong> three models have been integrated to enhance detection capabilities</li>
-                <li><strong>Source Verification:</strong> Cross-referencing with reliable news sources</li>
+                <li><strong>Tri-Modal Dependency:</strong>Fast check on our side saving time and effort</li>
+                <li><strong>Source Verification:</strong> Cross-referencing with reliable news sources and on score basis</li>
             </ul>
         </section>
         
@@ -67,82 +68,4 @@
     </div>
 </div>
 
-<style>
-    .about-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-        padding: 20px;
-    }
-
-    .about-box {
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 15px;
-        border: none;
-        max-width: 800px;
-        color: #333333;
-    }
-
-    .about-box h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5em;
-        color: #3B4953;
-    }
-
-    .about-section {
-        margin-bottom: 30px;
-    }
-
-    .about-section h2 {
-        color: #4CAF50;
-        margin-bottom: 15px;
-        font-size: 1.5em;
-    }
-
-    .about-section p {
-        line-height: 1.8;
-        color: #333333;
-        margin-bottom: 10px;
-    }
-
-    .features-list {
-        list-style: none;
-        padding-left: 0;
-        margin: 15px 0;
-    }
-
-    .features-list li {
-        padding: 10px 0;
-        padding-left: 30px;
-        position: relative;
-        line-height: 1.6;
-        color: #333333;
-    }
-
-    .features-list li:before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: #4CAF50;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-
-    .inline-link {
-        color: #4CAF50;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-
-    .inline-link:hover {
-        color: #45a049;
-        text-decoration: underline;
-    }
-</style>
 {% endblock %}

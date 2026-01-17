@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - FakeNews Detect{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/faq.css')}}">
+<div class="faq-list">
+  <div class="faq-head">FAQs</div>
+  <div>
+    <details>
+      <summary>Is this Website any Good?</summary>
+      <p>Well it depends on what you call good.The website does give you response to your queries and also makes sure
+        that
+        the info is correct.So yeah it is good</p>
+    </details>
+  </div>
+  <div>
+    <details>
+      <summary>Can I fully trust this website?</summary>
+      <p>Yes,but as every website or application which uses ai can make mistakes.</p>
+    </details>
+  </div>
+  <div>
+    <details>
+      <summary>What models does this use?</summary>
+      <p> We use Gemini, Chatgpt and mistral models.</p>
+    </details>
+
+  </div>
+  <div>
+    <details>
+      <summary>Is this the final Product?</summary>
+      <p>No, The final product is still in progress.It will be completed in few days.</p>
+    </details>
+  </div>
+  <div>
+    <details>
+      <summary>What's so different from other websites and chatgpt?</summary>
+      <p> What we do is nothing different from chatgpt and perplexity but we provide fact based claims via multiple
+        resource checking and use transformer models for context understanding and synthesis.
+      </p>
+    </details>
+  </div>
+
+</div>
+
+
+{% endblock %}

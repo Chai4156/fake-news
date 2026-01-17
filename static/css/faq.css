@@ -1,0 +1,20 @@
+    #id{
+        font: size 50rem;
+        font-family:'Courier New', 'Courier', 'monospace';
+        display:flex;
+        color: white;
+        font-weight: 900;
+        line-height: 1;
+        }
+    .faq-list{
+        display: flex 1;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+    .faq-head{
+        text-align: center;
+        font-size: 3em;
+        color: #3B4953;
+        margin-bottom: 40px;
+    }
