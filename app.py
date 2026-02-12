@@ -14,13 +14,13 @@ def get_started():
 def fact_checking_websites():
     websites = [
         {
-            'name':'Public Information Bearueau',
+            'name':'Public Information Bureau',
             'url':'https://pib.gov.in/factcheck.aspx',
             'description':'Official government portal for fact-checking news and information.'
         },
        
         {
-            'name': 'FactCheck.in',
+            'name': 'FactChecker.in',
             'url': 'https://www.factchecker.in',
             'description': 'Non-partisan, nonprofit organization dedicated to fact-checking.'
         },

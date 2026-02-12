@@ -21,7 +21,7 @@
     .websites-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        gap: 20px;  
         text-align: left;
     }
 
@@ -39,7 +39,7 @@
     }
 
     .website-card h3 {
-        color: #4CAF50;
+        color: #3B4953;
         margin-bottom: 10px;
         font-size: 1.3em;
     }
@@ -53,7 +53,7 @@
 
     .visit-button {
         display: inline-block;
-        background-color: #4CAF50;
+        background-color: #3B4953;
         color: white;
         padding: 10px 20px;
         border-radius: 8px;
@@ -63,5 +63,4 @@
     }
 
     .visit-button:hover {
-        background-color: #45a049;
     }
