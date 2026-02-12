@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial;
+    font-family: 'Playwrite NZ Basic', cursive;
 }
 .log{
     width: 50px;
@@ -19,6 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Playwrite NZ Basic', cursive;
 }
 
 header {
